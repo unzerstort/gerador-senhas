@@ -1,0 +1,62 @@
+.slider {
+  -webkit-appearance: none;
+  background: #2C1746;
+  border-radius: 25px;
+  height: 10px;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  background-color: #FFFFFF;
+  border-radius: 25px;
+  border: none;
+}
+
+.slider::-moz-range-thumb {
+  appearance: none;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  background-color: #FFFFFF;
+  border-radius: 25px;
+  border: none;
+}
+
+body {
+  background-color: #0F021B;
+}
+
+.card__title, .header__title {
+  font-family: "Roboto Mono", monospace;
+}
+
+.card__content, .header__about {
+  font-family: "Roboto", sans-serif;
+}
+
+.header__title {
+  color: #FFFFFF;
+}
+
+.header__about {
+  color: #FFFFFF;
+}
+
+.card {
+  border: solid 1px #694A81;
+  background-color: #180828;
+}
+
+.card__title {
+  color: #D7D5EB;
+}
+
+.card__content {
+  color: #8A87AA;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=index.css.map */

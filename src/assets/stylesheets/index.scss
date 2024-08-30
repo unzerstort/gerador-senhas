@@ -1,0 +1,41 @@
+@use '_colors.scss';
+@use '_fonts.scss';
+@use '_slider.scss';
+
+body {
+    background-color: colors.$darkest-violet;
+}
+
+%title {
+    font-family: fonts.$accent-font;
+}
+
+%content {
+    font-family: fonts.$main-font;
+}
+
+.header__title {
+    @extend %title;
+    color: colors.$white;
+}
+
+.header__about {
+    @extend %content;
+    color: colors.$white;
+}
+
+.card {
+    border: solid 1px colors.$opaque-violet;
+    background-color: colors.$darker-violet;
+}
+
+.card__title {
+    @extend %title;
+    color: colors.$light-grey;
+}
+
+.card__content {
+    @extend %content;
+    color: colors.$grey;
+    font-weight: 500;
+}

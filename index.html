@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senhas</title>
+
+    <link rel="icon" type="image/x-icon" href="/src/assets/icons/lock.svg">
+    <link rel="stylesheet" href="/build/stylesheets/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+
+    <script src="/src/js/index.js" defer></script>
+
+</head>
+
+<body>
+    <header class="header">
+        <img src="/src/assets/icons/lock.svg" alt="Ícone de cadeado">
+        <h2 class="header__title">Gerador de Senhas</h2>
+        <p class="header__about">Gere instantaneamente uma senha aleatória e segura</p>
+    </header>
+
+    <section class="">
+        <input type="text" id="senha" readonly value="senha">
+
+        <div class="card">
+            <h4 class="card__title">Personalize sua senha</h4>
+
+            <div class="card__content">
+                <div class="">
+                    <label for="charNum">Número de caracteres</label>
+                    <input type="range" id="charNum" class="slider" min="1" max="100">
+                    <input type="number" id="rangeValue">
+                </div>
+
+                <div class="">
+                    <label for="properties">Características da senha</label>
+                    <div class="">
+                        <input type="checkbox" id="uppercase">
+                        <label for="uppercase">Letras maiúsculas</label>
+                    </div>
+                    <div class="">
+                        <input type="checkbox" id="lowercase">
+                        <label for="lowercase">Letras minúsculas</label>
+                    </div>
+                    <div class="">
+                        <input type="checkbox" id="digits">
+                        <label for="digits">Números</label>
+                    </div>
+                    <div class="">
+                        <input type="checkbox" id="symbols">
+                        <label for="symbols">Símbolos</label>
+                    </div>
+                </div>
+
+                <div class="">
+                    <p>Força da senha</p>
+                    <div class="">
+                        >barra de progresso< </div>
+                    </div>
+
+                </div>
+            </div>
+    </section>
+</body>
+
+</html>
