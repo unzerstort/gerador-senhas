@@ -23,15 +23,32 @@
 <body>
     <header class="header">
         <img src="/src/assets/icons/lock.svg" alt="Ícone de cadeado">
-        <h2 class="header__title">Gerador de Senhas</h2>
+        <h2 class="header__title font-mono">Gerador de Senhas</h2>
         <p class="header__about">Gere instantaneamente uma senha aleatória e segura</p>
     </header>
 
-    <section class="">
-        <input type="text" id="senha" readonly value="senha">
+    <!-- TODO: definir padding no container -->
+    <section class="container"> 
+        <div class="card bg-dark-violet bold-border-bottom border-shocking-pink">
+            <div class="row password-container">
+                <div class="password">
+                    <span class="text-xs">senha</span>
+                    <span class="text-xl font-mono">zcBLsNGX2616</span>
+                </div>
+    
+                <div class="row">
+                    <button class="btn-unstyled cursor-pointer">
+                        <img src="/src/assets/icons/copy.svg" alt="Copiar senha gerada">
+                    </button>
+                    <button class="btn-unstyled cursor-pointer">
+                        <img src="/src/assets/icons/refresh.svg" alt="Gerar nova senha">
+                    </button>
+                </div>
+            </div>
+        </div>
 
-        <div class="card">
-            <h4 class="card__title">Personalize sua senha</h4>
+        <div class="card bg-darker-violet border border-opaque-violet">
+            <h4 class="card__title font-mono">Personalize sua senha</h4>
 
             <div class="card__content">
                 <div class="">

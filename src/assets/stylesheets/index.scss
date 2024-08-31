@@ -1,41 +1,103 @@
 @use '_colors.scss';
 @use '_fonts.scss';
 @use '_slider.scss';
+@use '_queries.scss';
 
 body {
     background-color: colors.$darkest-violet;
-}
-
-%title {
-    font-family: fonts.$accent-font;
-}
-
-%content {
+    color: colors.$white;
     font-family: fonts.$main-font;
 }
 
+.font-mono {
+    font-family: fonts.$accent-font;
+}
+
+.font-sans {
+    font-family: fonts.$main-font;
+}
+
+// TODO: renomear 
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .header__title {
-    @extend %title;
     color: colors.$white;
 }
 
 .header__about {
-    @extend %content;
     color: colors.$white;
+    text-align: center;
 }
 
 .card {
-    border: solid 1px colors.$opaque-violet;
-    background-color: colors.$darker-violet;
+    // border: solid 1px colors.$opaque-violet;
+    // background-color: colors.$darker-violet;
+    padding: 2em;
 }
 
 .card__title {
-    @extend %title;
     color: colors.$light-grey;
 }
 
 .card__content {
-    @extend %content;
     color: colors.$grey;
     font-weight: 500;
+}
+
+// TODO: modificar pelo media query
+.password-container {
+    align-items: end;
+    justify-content: space-between;
+}
+
+// TODO: move to utils
+// TODO: check if sass processing can generate these classes from my colors
+
+.btn-unstyled {
+    background: none;
+    border: none;
+}
+.bg-dark-violet {
+    background-color: colors.$dark-violet;
+}
+
+.bold-border-bottom {
+    border-bottom: solid 4px;
+}
+
+.border-shocking-pink {
+    border-color: colors.$shocking-pink;
+}
+
+.bg-darker-violet {
+    background-color: colors.$darker-violet;
+}
+
+.border {
+    border: solid 1px;
+}
+
+.border-opaque-violet {
+    border-color: colors.$opaque-violet;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.text-xs {
+    font-size: 0.75em;
+}
+
+.text-xl {
+    font-size: 1.5em;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }
