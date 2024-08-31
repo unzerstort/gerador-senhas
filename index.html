@@ -21,36 +21,36 @@
 </head>
 
 <body>
-    <header class="header">
-        <img src="/src/assets/icons/lock.svg" alt="Ícone de cadeado">
-        <h2 class="header__title font-mono">Gerador de Senhas</h2>
-        <p class="header__about">Gere instantaneamente uma senha aleatória e segura</p>
+    <header class="flex flex-column items-center mt-4">
+        <img src="/src/assets/icons/lock.svg" class="svg-medium" alt="Ícone de cadeado">
+        <h2 class="font-mono text-white mb-0">Gerador de Senhas</h2>
+        <p class="text-white text-align-center mt-thin">Gere instantaneamente uma senha aleatória e segura</p>
     </header>
 
     <!-- TODO: definir padding no container -->
     <section class="container"> 
-        <div class="card bg-dark-violet bold-border-bottom border-shocking-pink">
-            <div class="row password-container">
+        <div class="card bg-dark-violet bold-border-bottom border-shocking-pink mt-2">
+            <div class="flex flex-row password-container items-center space-between">
                 <div class="password">
-                    <span class="text-xs">senha</span>
-                    <span class="text-xl font-mono">zcBLsNGX2616</span>
+                    <span class="text-xs text-grey pr-2 content-center">senha</span>
+                    <span class="text-xl font-mono text-white font-medium">zcBLsNGX2616</span>
                 </div>
     
-                <div class="row">
+                <div class="flex">
                     <button class="btn-unstyled cursor-pointer">
-                        <img src="/src/assets/icons/copy.svg" alt="Copiar senha gerada">
+                        <img src="/src/assets/icons/copy.svg" class="svg-size" alt="Copiar senha gerada">
                     </button>
                     <button class="btn-unstyled cursor-pointer">
-                        <img src="/src/assets/icons/refresh.svg" alt="Gerar nova senha">
+                        <img src="/src/assets/icons/refresh.svg" class="svg-size" alt="Gerar nova senha">
                     </button>
                 </div>
             </div>
         </div>
 
-        <div class="card bg-darker-violet border border-opaque-violet">
-            <h4 class="card__title font-mono">Personalize sua senha</h4>
+        <div class="card bg-darker-violet border border-opaque-violet mt-2">
+            <h4 class="text-light-grey text-xl font-mono m-0 mb-2">Personalize sua senha</h4>
 
-            <div class="card__content">
+            <div class="text-grey font-medium">
                 <div class="">
                     <label for="charNum">Número de caracteres</label>
                     <input type="range" id="charNum" class="slider" min="1" max="100">
@@ -82,9 +82,14 @@
                     <div class="">
                         >barra de progresso< </div>
                     </div>
-
                 </div>
             </div>
+        </div>
+
+        <button class="">
+            Copiar senha
+        </button>
+
     </section>
 </body>
 

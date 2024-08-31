@@ -1,19 +1,11 @@
 @use '_colors.scss';
 @use '_fonts.scss';
+@use '_utils.scss';
 @use '_slider.scss';
-@use '_queries.scss';
 
 body {
     background-color: colors.$darkest-violet;
     color: colors.$white;
-    font-family: fonts.$main-font;
-}
-
-.font-mono {
-    font-family: fonts.$accent-font;
-}
-
-.font-sans {
     font-family: fonts.$main-font;
 }
 
@@ -24,80 +16,67 @@ body {
     align-items: center;
 }
 
-.header__title {
-    color: colors.$white;
-}
-
-.header__about {
-    color: colors.$white;
-    text-align: center;
-}
-
 .card {
-    // border: solid 1px colors.$opaque-violet;
-    // background-color: colors.$darker-violet;
-    padding: 2em;
+    padding: 1.5em;
 }
 
-.card__title {
-    color: colors.$light-grey;
-}
-
-.card__content {
-    color: colors.$grey;
-    font-weight: 500;
+.container {
+    width: 100%;
+    max-width: 1089px;
+    margin: auto;
 }
 
 // TODO: modificar pelo media query
 .password-container {
-    align-items: end;
-    justify-content: space-between;
+
 }
 
-// TODO: move to utils
-// TODO: check if sass processing can generate these classes from my colors
-
-.btn-unstyled {
-    background: none;
-    border: none;
-}
-.bg-dark-violet {
-    background-color: colors.$dark-violet;
-}
-
-.bold-border-bottom {
-    border-bottom: solid 4px;
-}
-
-.border-shocking-pink {
-    border-color: colors.$shocking-pink;
-}
-
-.bg-darker-violet {
-    background-color: colors.$darker-violet;
-}
-
-.border {
-    border: solid 1px;
-}
-
-.border-opaque-violet {
-    border-color: colors.$opaque-violet;
-}
-
-.row {
+.password {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
-.text-xs {
-    font-size: 0.75em;
+.btn-container {
+    display: grid;
 }
 
-.text-xl {
-    font-size: 1.5em;
+// svg sizes
+$small: 2em;
+$medium: 3em;
+$large: 4em;
+
+.svg-medium {
+    height: $small;
+    width: $small;
 }
 
-.cursor-pointer {
-    cursor: pointer;
+// Media Queries
+
+
+// Small devices (landscape phones, 576px and up)
+@media screen and (min-width:576px) {
+    .password-container {}
+
+    .password {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .svg-size {
+        height: $small;
+        width: $small;
+    }
+    
 }
+
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {}
+
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {}
+
+// // X-Large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {}
+
+// // XX-Large devices (larger desktops, 1400px and up)
+// @media (min-width: 1400px) {}
