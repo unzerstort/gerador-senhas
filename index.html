@@ -27,20 +27,19 @@
         <p class="text-white text-align-center mt-thin">Gere instantaneamente uma senha aleatória e segura</p>
     </header>
 
-    <!-- TODO: definir padding no container -->
     <section class="container"> 
         <div class="card bg-dark-violet bold-border-bottom border-shocking-pink mt-2">
-            <div class="flex flex-row password-container items-center space-between">
+            <div class="flex flex-row flow-wrap password-container items-center justify-between">
                 <div class="password">
                     <span class="text-xs text-grey pr-2 content-center">senha</span>
-                    <span class="text-xl font-mono text-white font-medium">zcBLsNGX2616</span>
+                    <span id="password" class="text-xl font-mono text-white font-medium break-all"></span>
                 </div>
     
-                <div class="flex">
-                    <button class="btn-unstyled cursor-pointer">
+                <div class="flex self-end">
+                    <button class="btn-tertiary cursor-pointer mr-1" id="copy">
                         <img src="/src/assets/icons/copy.svg" class="svg-size" alt="Copiar senha gerada">
                     </button>
-                    <button class="btn-unstyled cursor-pointer">
+                    <button class="btn-tertiary cursor-pointer generate"> 
                         <img src="/src/assets/icons/refresh.svg" class="svg-size" alt="Gerar nova senha">
                     </button>
                 </div>
@@ -48,47 +47,57 @@
         </div>
 
         <div class="card bg-darker-violet border border-opaque-violet mt-2">
-            <h4 class="text-light-grey text-xl font-mono m-0 mb-2">Personalize sua senha</h4>
+            <h4 class="text-light-grey text-xl font-mono m-0 mb-1">Personalize sua senha</h4>
 
-            <div class="text-grey font-medium">
-                <div class="">
-                    <label for="charNum">Número de caracteres</label>
-                    <input type="range" id="charNum" class="slider" min="1" max="100">
-                    <input type="number" id="rangeValue">
+            <div class="text-grey font-medium options-container">
+                <div class="char-container">
+                    <label for="charNum" class="text-lg">Número de caracteres</label>
+                    <input type="range" id="charNum" class="slider accent" min="1" max="100" value="10">
+                    <input type="number" id="rangeValue" class="text-grey font-sans font-medium text-xl">
                 </div>
 
-                <div class="">
-                    <label for="properties">Características da senha</label>
-                    <div class="">
-                        <input type="checkbox" id="uppercase">
-                        <label for="uppercase">Letras maiúsculas</label>
-                    </div>
-                    <div class="">
-                        <input type="checkbox" id="lowercase">
-                        <label for="lowercase">Letras minúsculas</label>
-                    </div>
-                    <div class="">
-                        <input type="checkbox" id="digits">
-                        <label for="digits">Números</label>
-                    </div>
-                    <div class="">
-                        <input type="checkbox" id="symbols">
-                        <label for="symbols">Símbolos</label>
-                    </div>
+                <div class="attr-container">
+                    <form id="attributes">
+                        <label for="attributes">Características da senha</label>
+                        <div class="">
+                            <input type="checkbox" id="uppercase" name="check" value="uppercase">
+                            <span class="checkmark"></span>
+                            <label for="uppercase" class="cursor-pointer">Letras maiúsculas</label>
+                        </div>
+                        <div class="">
+                            <input type="checkbox" id="lowercase" name="check" value="lowercase">
+                            <label for="lowercase" class="cursor-pointer">Letras minúsculas</label>
+                        </div>
+                        <div class="">
+                            <input type="checkbox" id="digits" name="check" value="digits">
+                            <label for="digits" class="cursor-pointer">Números</label>
+                        </div>
+                        <div class="">
+                            <input type="checkbox" id="symbols" name="check" value="symbols">
+                            <label for="symbols" class="cursor-pointer">Símbolos</label>
+                        </div>
+                    </form>
                 </div>
 
-                <div class="">
+                <div id="strength-container">
                     <p>Força da senha</p>
-                    <div class="">
-                        >barra de progresso< </div>
+                    <div id="strength-bar">
+                        <div id="strength" class="weak"></div>
+                        <div class="flex justify-between">
+                            <span class="">Fraca</span>
+                            <span class="">Média</span>
+                            <span class="">Forte</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <button class="">
-            Copiar senha
-        </button>
+        <div class="flex justify-center mt-2">
+            <button class="btn-primary font-medium font-sans cursor-pointer" id="copy">
+                Copiar senha
+            </button>
+        </div>
 
     </section>
 </body>

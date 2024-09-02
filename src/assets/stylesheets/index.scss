@@ -1,7 +1,7 @@
 @use '_colors.scss';
 @use '_fonts.scss';
 @use '_utils.scss';
-@use '_slider.scss';
+@use '_input.scss';
 
 body {
     background-color: colors.$darkest-violet;
@@ -27,17 +27,83 @@ body {
 }
 
 // TODO: modificar pelo media query
-.password-container {
+.password-container {}
 
-}
 
 .password {
     display: flex;
     flex-direction: column;
 }
 
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.char-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.attr-container {}
+
+#strength-container {}
+
+#strength-bar {
+    background-color: colors.$dark-violet;
+    width: 18.75em;
+    height: 2em;
+}
+
+.weak {
+    background-color: colors.$bright-red;
+    width: 25%;
+    height: 100%;
+    margin-bottom: 0.75em;
+}
+
+.medium {
+    background-color: colors.$bright-yellow;
+    width: 50%;
+    height: 100%;
+    margin-bottom: 0.75em;
+}
+
+.strong {
+    background-color: colors.$bright-green;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0.75em;
+}
+
 .btn-container {
     display: grid;
+}
+
+.btn-primary {
+    background-color: colors.$shocking-pink;
+    border: solid 1px colors.$shocking-pink;
+    border-radius: 2px;
+    padding: 10px 12px 10px 12px;
+}
+
+.btn-primary:hover {
+    background-color: colors.$opaque-violet;
+    border-color: colors.$opaque-violet;
+    color: colors.$light-grey;
+}
+
+.btn-tertiary {
+    background: none;
+    border: none;
+    border-radius: 20px;
+    padding: 2px 4px 2px 4px;
+}
+
+.btn-tertiary:hover {
+    background-color: colors.$opaque-violet;
 }
 
 // svg sizes
@@ -45,7 +111,7 @@ $small: 2em;
 $medium: 3em;
 $large: 4em;
 
-.svg-medium {
+.svg-size {
     height: $small;
     width: $small;
 }
@@ -66,17 +132,28 @@ $large: 4em;
         height: $small;
         width: $small;
     }
-    
+
+    .options-container {}
+
 }
 
-// // Medium devices (tablets, 768px and up)
-// @media (min-width: 768px) {}
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
 
-// // Large devices (desktops, 992px and up)
-// @media (min-width: 992px) {}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .options-container {
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        justify-content: space-between;
+    }
 
-// // X-Large devices (large desktops, 1200px and up)
-// @media (min-width: 1200px) {}
 
-// // XX-Large devices (larger desktops, 1400px and up)
-// @media (min-width: 1400px) {}
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {}

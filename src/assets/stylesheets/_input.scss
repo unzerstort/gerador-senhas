@@ -1,0 +1,77 @@
+@use '_colors.scss';
+
+.slider {
+    -webkit-appearance: none;
+    background: colors.$dark-violet;
+    border-radius: 25px;
+    height: 10px;
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    background-color: colors.$white;
+    border-radius: 25px; 
+    border: none;
+}
+
+.slider::-moz-range-thumb {
+    appearance: none;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    background-color: colors.$white;
+    border-radius: 25px; 
+    border: none;
+}
+
+input[type="range"]::-moz-range-progress {
+    background-color: colors.$white; 
+    height: 10px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    background-color: colors.$dark-violet;
+    border: solid 1px colors.$opaque-violet;
+    padding: 14px;
+    width: 2em;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=checkbox] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    background-color: colors.$dark-violet;
+    border: solid 1px colors.$opaque-violet;
+    width: 1.5em;
+    height: 1.5em;
+    position: relative;
+    top: 5px;
+}
+
+input[type=checkbox]:checked {
+    background: colors.$white url("/src/assets/icons/check.svg") -3px no-repeat;
+}
+
+input[type=checkbox]:hover {
+    background-color: colors.$opaque-violet;
+}
+
+input[type=checkbox]:checked:hover {
+    background-color: colors.$white;
+}
+
+input[type=text] {
+    -webkit-appearance: none;
+}
