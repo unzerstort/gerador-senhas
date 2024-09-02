@@ -32,7 +32,7 @@ function generatePassword() {
         password += dictionary[pos];
     }
 
-    document.getElementById('password').innerHTML = password;
+    document.getElementById('password').innerText = password;
     console.log(password);
 }
 
@@ -47,16 +47,38 @@ document.querySelector('input[type="range"]').addEventListener(
     "input", (e) => {
         document.querySelector(
             "input[type=number]").value = e.target.value;
-        generatePassword();
     }
 );
 
-const copyBtn = document.getElementById("copy");
+document.querySelector('input[type="number"]').addEventListener(
+    "input", (e) => {
+        document.querySelector(
+            "input[type=range]").value = e.target.value;
+    }
+);
 
-copyBtn.addEventListener('click', () => {
-    const password = document.getElementById("password").innerHTML; 
-    navigator.clipboard.writeText(password);
-});
+function copyPassword(buttonId) {
+    console.log('copyPassword')
+    const copyBtn = document.getElementById(buttonId);
+
+    copyBtn.addEventListener('click', () => {
+        console.log('click')
+        const password = document.getElementById("password").innerText;
+        copyTextToClipboard(password).then(() => {
+            console.log('success')
+        }).catch(err => console.log(err));
+        // navigator.clipboard.writeText(password);
+
+    });
+}
+
+function copyTextToClipboard(textToCopy) {
+    if (navigator?.clipboard?.writeText) {
+        return navigator.clipboard.writeText(textToCopy);
+    }
+    return Promise.reject('The Clipboard API is not available.');
+}
+
 
 // strength bar
 function changePasswordStrength(e) {
@@ -71,10 +93,13 @@ function changePasswordStrength(e) {
 
     if (hasUppercase && hasLowercase && hasNumbers && hasSymbols) {
         strength.className = "strong";
+        strength.setAttribute("aria-label", "Força da senha: forte");
     } else if ((hasUppercase || hasLowercase) && (hasNumbers || hasSymbols)) {
         strength.className = "medium";
+        strength.setAttribute("aria-label", "Força da senha: média");
     } else {
         strength.className = "weak";
+        strength.setAttribute("aria-label", "Força da senha: fraca");
     }
 }
 
@@ -91,4 +116,6 @@ function checkboxListener(event, formId) {
 document.addEventListener("DOMContentLoaded", function (event) {
     checkboxListener(changePasswordStrength, 'attributes');
     generatePassword();
+    copyPassword('copy');
+    copyPassword('copy-password');
 });

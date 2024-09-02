@@ -1,20 +1,20 @@
 @use '_colors.scss';
 
-.slider {
-    -webkit-appearance: none;
+.slider,
+input[type=range]::-webkit-slider-runnable-track {
     background: colors.$dark-violet;
     border-radius: 25px;
     height: 10px;
 }
 
-.slider::-webkit-slider-thumb {
-    appearance: none;
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
     cursor: pointer;
     height: 20px;
     width: 20px;
     background-color: colors.$white;
-    border-radius: 25px; 
-    border: none;
+    border-radius: 25px;
+    margin-top: -3px;
 }
 
 .slider::-moz-range-thumb {
@@ -23,23 +23,28 @@
     height: 20px;
     width: 20px;
     background-color: colors.$white;
-    border-radius: 25px; 
-    border: none;
+    border-radius: 25px;
+    border: solid 1px colors.$white;
 }
 
-input[type="range"]::-moz-range-progress {
-    background-color: colors.$white; 
+input[type=range]::-moz-range-progress {
+    background-color: colors.$white;
     height: 10px;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
+    border-radius: 25px;
 }
 
-input[type="number"] {
+input[type="range"]:focus::-moz-range-thumb {
+    border: 1px solid colors.$shocking-pink;
+    outline: 3px solid colors.$shocking-pink;
+    outline-offset: 0.125rem;
+}
+
+input[type=number] {
     appearance: textfield;
     background-color: colors.$dark-violet;
     border: solid 1px colors.$opaque-violet;
-    padding: 14px;
-    width: 2em;
+    padding: 10px;
+    width: 2.5em;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -74,4 +79,5 @@ input[type=checkbox]:checked:hover {
 
 input[type=text] {
     -webkit-appearance: none;
+    appearance: none;
 }

@@ -9,13 +9,6 @@ body {
     font-family: fonts.$main-font;
 }
 
-// TODO: renomear 
-.header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .card {
     padding: 1.5em;
 }
@@ -33,6 +26,11 @@ body {
 .password {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+}
+
+#password {
+    overflow-y: scroll;
 }
 
 .options-container {
@@ -44,7 +42,7 @@ body {
 .char-container {
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 1.5em;
 }
 
 .attr-container {}
@@ -99,7 +97,7 @@ body {
     background: none;
     border: none;
     border-radius: 20px;
-    padding: 2px 4px 2px 4px;
+    padding: 6px 8px 6px 8px;
 }
 
 .btn-tertiary:hover {
@@ -111,13 +109,21 @@ $small: 2em;
 $medium: 3em;
 $large: 4em;
 
+// font sizes
+$smaller-font: 1.25em; 
+$small-font: 1.375em; 
+$medium-font: 1.5em; 
+$large-font: 1.75em; 
+$larger-font: 2em; 
+$largest-font: 2.5em; 
+
+
 .svg-size {
     height: $small;
     width: $small;
 }
 
 // Media Queries
-
 
 // Small devices (landscape phones, 576px and up)
 @media screen and (min-width:576px) {
@@ -135,10 +141,107 @@ $large: 4em;
 
     .options-container {}
 
+    header h2 {
+        font-size: $larger-font;
+    }
+
+    header p {
+        font-size: $medium-font;
+    }
+
+    .password span.text-grey {
+        font-size: 0.75em;
+    }
+
+    .password span.text-white {
+        font-size: $medium-font;
+    }
+
+    h4 {
+        font-size: $medium-font;
+    }
+
+    div.char-container label {
+        font-size: $smaller-font;
+    }
+
+    div.char-container input#rangeValue {
+        font-size: $smaller-font;
+    }
+
+    form label[for=attributes] {
+        font-size: $smaller-font;
+    }
+
+    #strength-container label {
+        font-size: $smaller-font;
+    }
+
+    div#strength-bar div span {
+        font-size: 1em;
+    } 
+
+    button#copy-password {
+        font-size: $smaller-font;
+    }
+
 }
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+    .options-container {
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        justify-content: space-between;
+    }
+
+    header h2 {
+        font-size: $larger-font;
+    }
+
+    header p {
+        font-size: $medium-font;
+    }
+
+    .password span.text-grey {
+        font-size: 0.75em;
+    }
+
+    .password span.text-white {
+        font-size: $medium-font;
+    }
+
+    h4 {
+        font-size: $medium-font;
+    }
+
+    div.char-container label {
+        font-size: $smaller-font;
+    }
+
+    div.char-container input#rangeValue {
+        font-size: $smaller-font;
+    }
+
+    form label[for=attributes] {
+        font-size: $smaller-font;
+    }
+
+    #strength-container label {
+        font-size: $smaller-font;
+    }
+
+    div#strength-bar div span {
+        font-size: 1em;
+    } 
+
+    button#copy-password {
+        font-size: $smaller-font;
+    }
+
+
+}
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
@@ -149,11 +252,103 @@ $large: 4em;
         justify-content: space-between;
     }
 
+    header h2 {
+        font-size: $larger-font;
+    }
+
+    header p {
+        font-size: $medium-font;
+    }
+
+    .password span.text-grey {
+        font-size: 0.75em;
+    }
+
+    .password span.text-white {
+        font-size: $medium-font;
+    }
+
+    h4 {
+        font-size: $medium-font;
+    }
+
+    div.char-container label {
+        font-size: $smaller-font;
+    }
+
+    div.char-container input#rangeValue {
+        font-size: $smaller-font;
+    }
+
+    form label[for=attributes] {
+        font-size: $smaller-font;
+    }
+
+    #strength-container label {
+        font-size: $smaller-font;
+    }
+
+    div#strength-bar div span {
+        font-size: 1em;
+    } 
+
+    button#copy-password {
+        font-size: $smaller-font;
+    }
 
 }
 
 // X-Large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+
+    header h2 {
+        font-size: $larger-font;
+    }
+
+    header p {
+        font-size: $medium-font;
+    }
+
+    .password span.text-grey {
+        font-size: $smaller-font;
+    }
+
+    .password span.text-white {
+        font-size: $largest-font;
+    }
+
+    h4 {
+        font-size: $medium-font;
+    }
+
+    div.char-container label {
+        font-size: $medium-font;
+    }
+
+    div.char-container input#rangeValue {
+        font-size: $medium-font;
+    }
+
+    form label[for=attributes] {
+        font-size: $medium-font;
+    }
+
+    div label.cursor-pointer {
+        font-size: $smaller-font;
+    }
+
+    #strength-container label {
+        font-size: $medium-font;
+    }
+
+    div#strength-bar div span {
+        font-size: $smaller-font;
+    } 
+
+    button#copy-password {
+        font-size: $small-font;
+    }
+}
 
 // XX-Large devices (larger desktops, 1400px and up)
 @media (min-width: 1400px) {}
