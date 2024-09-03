@@ -6,9 +6,7 @@ function copyPassword(buttonId) {
     copyBtn.addEventListener('click', () => {
         const password = document.getElementById("password").innerText;
         
-        // TODO: colocar alerta de erro ao invés do console.log
         copyTextToClipboard(password).then(() => showToast('Senha copiada com sucesso!', 'success')).catch(err => showToast(`Erro ao copiar o texto: ${err}`, 'error'));
-
     });
 }
 

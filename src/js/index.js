@@ -123,6 +123,5 @@ document.addEventListener("DOMContentLoaded", function () {
     addClickEventListeners();
     synchronizeRangeAndNumber();
     // TODO: criar uma função que centralize a geração de senhas:
-    // atualmente, o fluxo de geração de senha está espalhado no arquivo index.js e index.html
     // criar um novo arquivo js responsável por isso com uma única função que será chamada aqui
 });
