@@ -1,5 +1,6 @@
 @use '_colors.scss';
 @use '_toast.scss';
+@use '_modal.scss';
 @use '_fonts.scss';
 @use '_utils.scss';
 @use '_input.scss';
@@ -97,7 +98,12 @@ body {
     background-color: colors.$opaque-violet;
 }
 
+.visually-hidden {
+    display: none;
+}
+
 // svg sizes
+$xs: 1.25em;
 $small: 2em;
 $medium: 3em;
 $large: 4em;
@@ -111,9 +117,20 @@ $larger-font: 2em;
 $largest-font: 2.5em; 
 
 
-.svg-size {
+.h-small {
     height: $small;
+}
+
+.w-small {
     width: $small;
+}
+
+.h-xs {
+    height: $xs;
+}
+
+.w-xs {
+    width: $xs;
 }
 
 // Media Queries
@@ -125,12 +142,7 @@ $largest-font: 2.5em;
         flex-direction: row;
     }
 
-    .svg-size {
-        height: $small;
-        width: $small;
-    }
-
-    header h2 {
+    header h1 {
         font-size: $larger-font;
     }
 
@@ -158,7 +170,7 @@ $largest-font: 2.5em;
         font-size: $smaller-font;
     }
 
-    form label[for=attributes] {
+    fieldset legend {
         font-size: $smaller-font;
     }
 
@@ -185,7 +197,7 @@ $largest-font: 2.5em;
         justify-content: space-between;
     }
 
-    header h2 {
+    header h1 {
         font-size: $larger-font;
     }
 
@@ -213,7 +225,7 @@ $largest-font: 2.5em;
         font-size: $smaller-font;
     }
 
-    form label[for=attributes] {
+    fieldset legend {
         font-size: $smaller-font;
     }
 
@@ -241,7 +253,7 @@ $largest-font: 2.5em;
         justify-content: space-between;
     }
 
-    header h2 {
+    header h1 {
         font-size: $larger-font;
     }
 
@@ -269,7 +281,7 @@ $largest-font: 2.5em;
         font-size: $smaller-font;
     }
 
-    form label[for=attributes] {
+    fieldset legend {
         font-size: $smaller-font;
     }
 
@@ -318,7 +330,7 @@ $largest-font: 2.5em;
         font-size: $medium-font;
     }
 
-    form label[for=attributes] {
+    fieldset legend {
         font-size: $medium-font;
     }
 

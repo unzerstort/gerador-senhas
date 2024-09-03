@@ -1,8 +1,9 @@
+@charset "UTF-8";
 #toast {
   visibility: hidden;
   min-width: 250px;
-  background-color: #00FF85;
-  color: #2C1746;
+  background-color: #00CC69;
+  color: #0F021B;
   text-align: center;
   border-radius: 2px;
   padding: 16px;
@@ -60,6 +61,85 @@
     opacity: 0;
   }
 }
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(28, 23, 70, 0.7);
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
+  background-color: #2C1746;
+  color: #8A87AA;
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}
+.modal.show {
+  display: block;
+  opacity: 1;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal.hide {
+  animation: fadeOut 0.3s ease; /* Animação de fade-out */
+}
+
+.close {
+  color: #FD58FF;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close:hover {
+  color: #E71B32;
+}
+
+.modal.fade-in {
+  opacity: 0;
+}
+
+.modal.fade-in.show {
+  opacity: 1;
+}
+
 .font-mono {
   font-family: "Roboto Mono", monospace;
 }
@@ -94,6 +174,10 @@
 
 .bg-darker-violet {
   background-color: #180828;
+}
+
+.bg-none {
+  background: none;
 }
 
 .bold-border-bottom {
@@ -198,6 +282,10 @@
 
 .pr-2 {
   padding-right: 2em;
+}
+
+.p {
+  padding: 0;
 }
 
 .accent {
@@ -379,9 +467,24 @@ body {
   background-color: #694A81;
 }
 
-.svg-size {
+.visually-hidden {
+  display: none;
+}
+
+.h-small {
   height: 2em;
+}
+
+.w-small {
   width: 2em;
+}
+
+.h-xs {
+  height: 1.25em;
+}
+
+.w-xs {
+  width: 1.25em;
 }
 
 @media screen and (min-width: 576px) {
@@ -389,11 +492,7 @@ body {
     display: flex;
     flex-direction: row;
   }
-  .svg-size {
-    height: 2em;
-    width: 2em;
-  }
-  header h2 {
+  header h1 {
     font-size: 2em;
   }
   header p {
@@ -414,7 +513,7 @@ body {
   div.char-container input#rangeValue {
     font-size: 1.25em;
   }
-  form label[for=attributes] {
+  fieldset legend {
     font-size: 1.25em;
   }
   #strength-container label {
@@ -434,7 +533,7 @@ body {
     gap: 1em;
     justify-content: space-between;
   }
-  header h2 {
+  header h1 {
     font-size: 2em;
   }
   header p {
@@ -455,7 +554,7 @@ body {
   div.char-container input#rangeValue {
     font-size: 1.25em;
   }
-  form label[for=attributes] {
+  fieldset legend {
     font-size: 1.25em;
   }
   #strength-container label {
@@ -475,7 +574,7 @@ body {
     gap: 1em;
     justify-content: space-between;
   }
-  header h2 {
+  header h1 {
     font-size: 2em;
   }
   header p {
@@ -496,7 +595,7 @@ body {
   div.char-container input#rangeValue {
     font-size: 1.25em;
   }
-  form label[for=attributes] {
+  fieldset legend {
     font-size: 1.25em;
   }
   #strength-container label {
@@ -531,7 +630,7 @@ body {
   div.char-container input#rangeValue {
     font-size: 1.5em;
   }
-  form label[for=attributes] {
+  fieldset legend {
     font-size: 1.5em;
   }
   div label.cursor-pointer {

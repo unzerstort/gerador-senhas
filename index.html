@@ -21,17 +21,17 @@
 </head>
 
 <body>
-    <header class="flex flex-column items-center mt-4">
-        <div id="toast">
+    <header class="flex flex-column items-center mt-4" aria-label="Cabeçalho da página">
+        <div id="toast" role="alert" aria-live="assertive">
             Senha copiada com sucesso!
         </div>
         <img src="/src/assets/icons/lock.svg" class="svg-medium" alt="Ícone de cadeado">
-        <h2 class="font-mono text-white mb-0">Gerador de Senhas</h2>
+        <h1 class="font-mono text-white mb-0">Gerador de Senhas</h1>
         <p class="text-white text-align-center mt-thin">Gere instantaneamente uma senha aleatória e segura</p>
     </header>
 
-    <section class="container">
-        <div class="card bg-dark-violet bold-border-bottom border-shocking-pink mt-2">
+    <main class="container" aria-label="Conteúdo principal">
+        <section class="card bg-dark-violet bold-border-bottom border-shocking-pink mt-2">
             <div class="flex flex-row password-container items-center justify-between">
                 <div class="password">
                     <span class=" text-grey pr-2 content-center">senha</span>
@@ -40,52 +40,72 @@
 
                 <div class="flex self-end ml-1">
                     <button class="btn-tertiary cursor-pointer mr-1" id="copy" aria-label="Copiar senha gerada">
-                        <img src="/src/assets/icons/copy.svg" class="svg-size" alt="Ícone para copiar senha">
+                        <img src="/src/assets/icons/copy.svg" class="w-small h-small" alt="Ícone para copiar senha">
                     </button>
                     <button class="btn-tertiary cursor-pointer generate" aria-label="Gerar nova senha">
-                        <img src="/src/assets/icons/refresh.svg" class="svg-size" alt="Ícone para gerar nova senha">
+                        <img src="/src/assets/icons/refresh.svg" class="w-small h-small"
+                            alt="Ícone para gerar nova senha">
                     </button>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="card bg-darker-violet border border-opaque-violet mt-2">
-            <h4 class="text-light-grey font-mono m-0 mb-1">Personalize sua senha</h4>
+        <section class="card bg-darker-violet border border-opaque-violet mt-2">
+            <h2 class="text-light-grey font-mono m-0 mb-1">Personalize sua senha</h2>
 
             <div class="text-grey font-medium options-container mb-2">
                 <div class="char-container">
                     <label for="charNum">Número de caracteres</label>
-                    <input type="range" id="charNum" class="slider accent" min="1" max="24" value="10"
-                        aria-labelledby="charNumLabel" onclick="generatePassword()">
+                    <input type="range" id="charNum" class="slider accent" min="1" max="24"
+                        aria-labelledby="charNumLabel" aria-describedby="charNumDescription"
+                        onclick="generatePassword()">
                     <input type="number" id="rangeValue" class="text-grey font-sans font-medium"
-                        aria-labelledby="charNumLabel" onchange="generatePassword()">
+                        aria-labelledby="charNumLabel" aria-describedby="charNumDescription"
+                        onchange="generatePassword()">
+                    <p id="charNumDescription" class="visually-hidden">Ajuste o número de caracteres da senha</p>
                 </div>
 
                 <div class="attr-container">
-                    <form id="attributes">
-                        <label for="attributes">Características da senha</label>
-                        <div class="">
+                    <fieldset class="border-none p-0" id="attributes">
+                        <legend>Características da senha</legend>
+                        <div>
                             <input type="checkbox" id="uppercase" name="check" value="uppercase">
                             <span class="checkmark"></span>
                             <label for="uppercase" class="cursor-pointer">Letras maiúsculas</label>
                         </div>
-                        <div class="">
+                        <div>
                             <input type="checkbox" id="lowercase" name="check" value="lowercase">
                             <label for="lowercase" class="cursor-pointer">Letras minúsculas</label>
                         </div>
-                        <div class="">
+                        <div>
                             <input type="checkbox" id="digits" name="check" value="digits">
                             <label for="digits" class="cursor-pointer">Números</label>
                         </div>
-                        <div class="">
+                        <div>
                             <input type="checkbox" id="symbols" name="check" value="symbols">
                             <label for="symbols" class="cursor-pointer">Símbolos</label>
                         </div>
-                    </form>
+                    </fieldset>
                 </div>
 
                 <div id="strength-container">
-                    <label for="strength-bar">Força da senha</label>
+                    <div class="">
+                        <label for="strength-bar">Força da senha</label>
+                        <button id="modal-btn" class="border-none bg-none cursor-pointer"
+                            aria-label="Abrir ajuda sobre a força da senha">
+                            <img src="/src/assets/icons/question-mark.svg" class="h-xs w-xs"
+                                alt="Ícone de interrogação">
+                        </button>
+                    </div>
+
+                    <div id="modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close" id="close" aria-label="Fechar modal">&times;</span>
+                            <p id="modal-description">Alguma informação sobre a força da senha.</p>
+                        </div>
+                    </div>
+
                     <div id="strength-bar" class="mt-1 mb-2">
                         <div id="strength" class="weak"></div>
                         <div class="flex justify-between">
@@ -96,7 +116,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <div class="flex justify-center mt-2">
             <button class="btn-primary font-medium font-sans cursor-pointer" id="copy-password"
@@ -104,7 +124,7 @@
                 Copiar senha
             </button>
         </div>
-    </section>
+    </main>
 </body>
 
 </html>

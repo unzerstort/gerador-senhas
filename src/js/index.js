@@ -36,26 +36,34 @@ function generatePassword() {
     console.log(password);
 }
 
-[
-    ...document.querySelectorAll(
-        'input[type="checkbox"], button.generate'),
-].forEach((elem) => {
-    elem.addEventListener("click", generatePassword);
-});
+function addClickEventListeners() {
+    const elements = document.querySelectorAll(
+        'input[type="checkbox"], button.generate'
+    );
+    elements.forEach((elem) => {
+        elem.addEventListener("click", generatePassword);
+    });
+}
 
-document.querySelector('input[type="range"]').addEventListener(
-    "input", (e) => {
-        document.querySelector(
-            "input[type=number]").value = e.target.value;
-    }
-);
+function synchronizeRangeAndNumber() {
+    const rangeInput = document.querySelector('input[type="range"]');
+    const numberInput = document.querySelector('input[type="number"]');
 
-document.querySelector('input[type="number"]').addEventListener(
-    "input", (e) => {
-        document.querySelector(
-            "input[type=range]").value = e.target.value;
-    }
-);
+    // set the default value of both inputs to 12
+    const defaultValue = 12;
+    rangeInput.value = defaultValue;
+    numberInput.value = defaultValue;
+
+    // updates number input when range input changes
+    rangeInput.addEventListener("input", (e) => {
+        numberInput.value = e.target.value;
+    });
+
+    // updates range input when number input changes
+    numberInput.addEventListener("input", (e) => {
+        rangeInput.value = e.target.value;
+    });
+}
 
 function copyPassword(buttonId) {
     const copyBtn = document.getElementById(buttonId);
@@ -69,7 +77,7 @@ function copyPassword(buttonId) {
 
 function showToast() {
     let toast = document.getElementById("toast");
-    toast.className = "show";
+    toast.className = "show font-medium";
     setTimeout(function () { toast.className = toast.className.replace("show", " "); }, 3000);
 }
 
@@ -78,6 +86,29 @@ function copyTextToClipboard(textToCopy) {
         return navigator.clipboard.writeText(textToCopy);
     }
     return Promise.reject('The Clipboard API is not available.');
+}
+
+function setUpModalEvents() {
+    const modal = document.getElementById('modal');
+    const btn = document.getElementById('modal-btn');
+    const close = document.getElementById('close');
+
+    // opens modal
+    btn.addEventListener('click', () => {
+        modal.style.display = 'block';
+    });
+
+    // closes modal when closing button is clicked
+    close.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    // closes modal when the user clicks outside of it
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
 }
 
 // strength bar
@@ -113,9 +144,12 @@ function checkboxListener(event, formId) {
 
 }
 
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener("DOMContentLoaded", function () {
     checkboxListener(changePasswordStrength, 'attributes');
     generatePassword();
     copyPassword('copy');
     copyPassword('copy-password');
+    setUpModalEvents();
+    addClickEventListeners();
+    synchronizeRangeAndNumber();
 });

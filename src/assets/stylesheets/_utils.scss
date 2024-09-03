@@ -37,6 +37,10 @@
     background-color: colors.$darker-violet;
 }
 
+.bg-none {
+    background: none;
+}
+
 .bold-border-bottom {
     border-bottom: solid 4px;
 }
@@ -139,6 +143,10 @@
 
 .pr-2 {
     padding-right: 2em;
+}
+
+.p {
+    padding: 0;
 }
 
 .accent {
