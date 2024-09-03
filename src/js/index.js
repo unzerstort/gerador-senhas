@@ -1,56 +1,6 @@
 import { configureClipboardActions } from "./clipboard.js";
 import { setUpModalEvents } from "./modal.js";
-
-function passwordGenerator(isUpper, isLower, hasDigits, hasSymbols, length) {
-    let dictionary = "";
-
-    if (isUpper) {
-        dictionary += "QWERTYUIOPASDFGHJKLZXCVBNM";
-    }
-    if (isLower) {
-        dictionary += "qwertyuiopasdfghjklzxcvbnm";
-    }
-    if (hasDigits) {
-        dictionary += "1234567890";
-    }
-    if (hasSymbols) {
-        dictionary += "!@#$%^&*()_+-={}[];<>:";
-    }
-    if (!(isUpper || isLower || hasDigits || hasSymbols)) {
-        dictionary += "qwertyuiopasdfghjklzxcvbnm";
-    }
-
-    let password = "";
-    for (let i = 0; i < length; i++) {
-        const pos = Math.floor(Math.random() * dictionary.length);
-        password += dictionary[pos];
-    }
-
-    return password;
-}
-
-function syncPassword(algorithm) {
-    let uppercaseIsChecked = document.getElementById("uppercase").checked;
-    let lowercaseIsChecked = document.getElementById("lowercase").checked;
-    let digitsIsChecked = document.getElementById("digits").checked;
-    let symbolsIsChecked = document.getElementById("symbols").checked;
-
-    const length = document.getElementById('charNum').value;
-
-    const password = algorithm(uppercaseIsChecked, lowercaseIsChecked, digitsIsChecked, symbolsIsChecked, length);
-
-    document.getElementById('password').innerText = password;
-}
-
-// TODO: passar algoritmo para essa função
-function generatePassword() {
-    syncPassword(passwordGenerator);
-    const charNum = document.getElementById('charNum');
-    const rangeValue = document.getElementById('rangeValue');
-
-    charNum.addEventListener("change", () => syncPassword(passwordGenerator));
-    rangeValue.addEventListener("change", () => syncPassword(passwordGenerator));
-}
+import { setupPassword  } from "./password.js";
 
 function addClickEventListeners() {
     const elements = document.querySelectorAll(
@@ -116,12 +66,14 @@ function checkboxListener(event, formId) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    checkboxListener(changePasswordStrength, 'attributes');
-    generatePassword();
+    setupPassword();
     configureClipboardActions();
     setUpModalEvents();
-    addClickEventListeners();
-    synchronizeRangeAndNumber();
-    // TODO: criar uma função que centralize a geração de senhas:
-    // criar um novo arquivo js responsável por isso com uma única função que será chamada aqui
+
+    // TODO: Move to password.js
+    // generatePassword();
+    //checkboxListener(changePasswordStrength, 'attributes');
+    //addClickEventListeners();
+    //synchronizeRangeAndNumber();
+    
 });
