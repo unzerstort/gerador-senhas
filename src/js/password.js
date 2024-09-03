@@ -3,24 +3,26 @@
 // nice to have a promise and trigger a loader while calculating, for example
 function simplePasswordGenerator(isUpper, isLower, hasDigits, hasSymbols, length) {
     let dictionary = "";
+    
+    const uppercase = "QWERTYUIOPASDFGHJKLZXCVBNM";
+    const lowercase = "qwertyuiopasdfghjklzxcvbnm";
+    const digits = "1234567890";
+    const symbols =  "!@#$%^&*()_+-={}[];<>:";
 
     if (isUpper) {
-        dictionary += "QWERTYUIOPASDFGHJKLZXCVBNM";
+        dictionary += uppercase;
     }
     if (isLower) {
-        dictionary += "qwertyuiopasdfghjklzxcvbnm";
+        dictionary += lowercase;
     }
     if (hasDigits) {
-        dictionary += "1234567890";
+        dictionary += digits;
     }
     if (hasSymbols) {
-        dictionary += "!@#$%^&*()_+-={}[];<>:";
+        dictionary += symbols;
     }
     if (!(isUpper || isLower || hasDigits || hasSymbols)) {
-        // TODO: não repita código, ele ja existe ali em cima
-        // sugiro colocar const para cada etapa do dicionário 
-        // e usar referencias a esses dicionários
-        dictionary += "qwertyuiopasdfghjklzxcvbnm";
+        dictionary += lowercase;
     }
 
     let password = "";
