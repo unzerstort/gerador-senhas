@@ -2,8 +2,6 @@
 #toast {
   visibility: hidden;
   min-width: 250px;
-  background-color: #00CC69;
-  color: #0F021B;
   text-align: center;
   border-radius: 2px;
   padding: 16px;
@@ -18,6 +16,16 @@
   However, delay the fade out process for 2.5 seconds */
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+.toast-success {
+  background-color: #00CC69;
+  color: #0F021B;
+}
+
+.toast-error {
+  background-color: #FB3640;
+  color: #0F021B;
 }
 
 /* Animations to fade the snackbar in and out */
