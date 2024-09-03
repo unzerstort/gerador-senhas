@@ -1,30 +1,23 @@
-// password generator
+import { setupClipboard } from "./clipboard.js";
 
-function generatePassword() {
+function passwordGenerator(isUpper, isLower, hasDigits, hasSymbols, length) {
     let dictionary = "";
 
-    let uppercaseIsChecked = document.getElementById("uppercase").checked;
-    let lowercaseIsChecked = document.getElementById("lowercase").checked;
-    let digitsIsChecked = document.getElementById("digits").checked;
-    let symbolsIsChecked = document.getElementById("symbols").checked;
-
-    if (uppercaseIsChecked) {
+    if (isUpper) {
         dictionary += "QWERTYUIOPASDFGHJKLZXCVBNM";
     }
-    if (lowercaseIsChecked) {
+    if (isLower) {
         dictionary += "qwertyuiopasdfghjklzxcvbnm";
     }
-    if (digitsIsChecked) {
+    if (hasDigits) {
         dictionary += "1234567890";
     }
-    if (symbolsIsChecked) {
+    if (hasSymbols) {
         dictionary += "!@#$%^&*()_+-={}[];<>:";
     }
-    if (!(uppercaseIsChecked || lowercaseIsChecked || digitsIsChecked || symbolsIsChecked)) {
+    if (!(isUpper || isLower || hasDigits || hasSymbols)) {
         dictionary += "qwertyuiopasdfghjklzxcvbnm";
     }
-
-    const length = document.querySelector('input[type="range"]').value;
 
     let password = "";
     for (let i = 0; i < length; i++) {
@@ -32,14 +25,38 @@ function generatePassword() {
         password += dictionary[pos];
     }
 
+    return password;
+}
+
+function syncPassword(algorithm) {
+    let uppercaseIsChecked = document.getElementById("uppercase").checked;
+    let lowercaseIsChecked = document.getElementById("lowercase").checked;
+    let digitsIsChecked = document.getElementById("digits").checked;
+    let symbolsIsChecked = document.getElementById("symbols").checked;
+
+    // TODO: pegar pelo id ao invés do querySelector
+    const length = document.querySelector('input[type="range"]').value;
+
+    const password = algorithm(uppercaseIsChecked, lowercaseIsChecked, digitsIsChecked, symbolsIsChecked, length);
+
     document.getElementById('password').innerText = password;
-    console.log(password);
+}
+
+// TODO: passar algoritmo para essa função
+function generatePassword() {
+    syncPassword(passwordGenerator);
+    const charNum = document.getElementById('charNum');
+    const rangeValue = document.getElementById('rangeValue');
+
+    charNum.addEventListener("change", () => syncPassword(passwordGenerator));
+    rangeValue.addEventListener("change", () => syncPassword(passwordGenerator));
 }
 
 function addClickEventListeners() {
     const elements = document.querySelectorAll(
         'input[type="checkbox"], button.generate'
     );
+
     elements.forEach((elem) => {
         elem.addEventListener("click", generatePassword);
     });
@@ -63,29 +80,6 @@ function synchronizeRangeAndNumber() {
     numberInput.addEventListener("input", (e) => {
         rangeInput.value = e.target.value;
     });
-}
-
-function copyPassword(buttonId) {
-    const copyBtn = document.getElementById(buttonId);
-
-    copyBtn.addEventListener('click', () => {
-        const password = document.getElementById("password").innerText;
-        copyTextToClipboard(password).then(() => showToast()).catch(err => console.log(err));
-
-    });
-}
-
-function showToast() {
-    let toast = document.getElementById("toast");
-    toast.className = "show font-medium";
-    setTimeout(function () { toast.className = toast.className.replace("show", " "); }, 3000);
-}
-
-function copyTextToClipboard(textToCopy) {
-    if (navigator?.clipboard?.writeText) {
-        return navigator.clipboard.writeText(textToCopy);
-    }
-    return Promise.reject('The Clipboard API is not available.');
 }
 
 function setUpModalEvents() {
@@ -142,7 +136,7 @@ function changePasswordStrength(e) {
 }
 
 function checkboxListener(event, formId) {
-    checks = document.getElementById(formId).addEventListener("change", () => {
+    document.getElementById(formId).addEventListener("change", () => {
         const formInputs = document.querySelectorAll("input[type='checkbox']:checked");
         let inputValue = [];
         formInputs.forEach(input => inputValue.push(input.value));
@@ -154,9 +148,11 @@ function checkboxListener(event, formId) {
 document.addEventListener("DOMContentLoaded", function () {
     checkboxListener(changePasswordStrength, 'attributes');
     generatePassword();
-    copyPassword('copy');
-    copyPassword('copy-password');
+    setupClipboard();
     setUpModalEvents();
     addClickEventListeners();
     synchronizeRangeAndNumber();
+    // TODO: criar uma função que centralize a geração de senhas:
+    // atualmente, o fluxo de geração de senha está espalhado no arquivo index.js e index.html
+    // criar um novo arquivo js responsável por isso com uma única função que será chamada aqui
 });
