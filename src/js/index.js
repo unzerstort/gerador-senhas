@@ -58,18 +58,19 @@ document.querySelector('input[type="number"]').addEventListener(
 );
 
 function copyPassword(buttonId) {
-    console.log('copyPassword')
     const copyBtn = document.getElementById(buttonId);
 
     copyBtn.addEventListener('click', () => {
-        console.log('click')
         const password = document.getElementById("password").innerText;
-        copyTextToClipboard(password).then(() => {
-            console.log('success')
-        }).catch(err => console.log(err));
-        // navigator.clipboard.writeText(password);
+        copyTextToClipboard(password).then(() => showToast()).catch(err => console.log(err));
 
     });
+}
+
+function showToast() {
+    let toast = document.getElementById("toast");
+    toast.className = "show";
+    setTimeout(function () { toast.className = toast.className.replace("show", " "); }, 3000);
 }
 
 function copyTextToClipboard(textToCopy) {
@@ -78,7 +79,6 @@ function copyTextToClipboard(textToCopy) {
     }
     return Promise.reject('The Clipboard API is not available.');
 }
-
 
 // strength bar
 function changePasswordStrength(e) {

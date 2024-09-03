@@ -22,24 +22,27 @@
 
 <body>
     <header class="flex flex-column items-center mt-4">
+        <div id="toast">
+            Senha copiada com sucesso!
+        </div>
         <img src="/src/assets/icons/lock.svg" class="svg-medium" alt="Ícone de cadeado">
         <h2 class="font-mono text-white mb-0">Gerador de Senhas</h2>
         <p class="text-white text-align-center mt-thin">Gere instantaneamente uma senha aleatória e segura</p>
     </header>
 
-    <section class="container"> 
+    <section class="container">
         <div class="card bg-dark-violet bold-border-bottom border-shocking-pink mt-2">
             <div class="flex flex-row password-container items-center justify-between">
                 <div class="password">
                     <span class=" text-grey pr-2 content-center">senha</span>
                     <span id="password" class="font-mono text-white font-medium" aria-live="polite"></span>
                 </div>
-    
+
                 <div class="flex self-end ml-1">
                     <button class="btn-tertiary cursor-pointer mr-1" id="copy" aria-label="Copiar senha gerada">
                         <img src="/src/assets/icons/copy.svg" class="svg-size" alt="Ícone para copiar senha">
                     </button>
-                    <button class="btn-tertiary cursor-pointer generate" aria-label="Gerar nova senha"> 
+                    <button class="btn-tertiary cursor-pointer generate" aria-label="Gerar nova senha">
                         <img src="/src/assets/icons/refresh.svg" class="svg-size" alt="Ícone para gerar nova senha">
                     </button>
                 </div>
@@ -49,11 +52,13 @@
         <div class="card bg-darker-violet border border-opaque-violet mt-2">
             <h4 class="text-light-grey font-mono m-0 mb-1">Personalize sua senha</h4>
 
-            <div class="text-grey font-medium options-container">
+            <div class="text-grey font-medium options-container mb-2">
                 <div class="char-container">
                     <label for="charNum">Número de caracteres</label>
-                    <input type="range" id="charNum" class="slider accent" min="1" max="24" value="10" aria-labelledby="charNumLabel" onclick="generatePassword()">
-                    <input type="number" id="rangeValue" class="text-grey font-sans font-medium" aria-labelledby="charNumLabel" onchange="generatePassword()">
+                    <input type="range" id="charNum" class="slider accent" min="1" max="24" value="10"
+                        aria-labelledby="charNumLabel" onclick="generatePassword()">
+                    <input type="number" id="rangeValue" class="text-grey font-sans font-medium"
+                        aria-labelledby="charNumLabel" onchange="generatePassword()">
                 </div>
 
                 <div class="attr-container">
@@ -94,11 +99,11 @@
         </div>
 
         <div class="flex justify-center mt-2">
-            <button class="btn-primary font-medium font-sans cursor-pointer" id="copy-password"  aria-label="Copiar senha">
+            <button class="btn-primary font-medium font-sans cursor-pointer" id="copy-password"
+                aria-label="Copiar senha">
                 Copiar senha
             </button>
         </div>
-
     </section>
 </body>
 
