@@ -109,6 +109,13 @@ function setUpModalEvents() {
             modal.style.display = "none";
         }
     }
+
+    // closes modal when the user presses esc
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            modal.style.display = 'none';
+        }
+    });
 }
 
 // strength bar
