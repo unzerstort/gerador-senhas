@@ -19,8 +19,7 @@ function copyTextToClipboard(textToCopy) {
     return Promise.reject('The Clipboard API is not available.');
 }
 
-// TODO: renomear
-export function setupClipboard(params) {
+export function configureClipboardActions() {
     copyPassword('copy');
     copyPassword('copy-password');
 }

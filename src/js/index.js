@@ -1,4 +1,4 @@
-import { setupClipboard } from "./clipboard.js";
+import { configureClipboardActions } from "./clipboard.js";
 
 function passwordGenerator(isUpper, isLower, hasDigits, hasSymbols, length) {
     let dictionary = "";
@@ -34,7 +34,6 @@ function syncPassword(algorithm) {
     let digitsIsChecked = document.getElementById("digits").checked;
     let symbolsIsChecked = document.getElementById("symbols").checked;
 
-    // TODO: pegar pelo id ao invés do querySelector
     const length = document.getElementById('charNum').value;
 
     const password = algorithm(uppercaseIsChecked, lowercaseIsChecked, digitsIsChecked, symbolsIsChecked, length);
@@ -148,7 +147,7 @@ function checkboxListener(event, formId) {
 document.addEventListener("DOMContentLoaded", function () {
     checkboxListener(changePasswordStrength, 'attributes');
     generatePassword();
-    setupClipboard();
+    configureClipboardActions();
     setUpModalEvents();
     addClickEventListeners();
     synchronizeRangeAndNumber();
