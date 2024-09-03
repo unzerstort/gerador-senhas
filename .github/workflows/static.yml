@@ -29,7 +29,7 @@ jobs:
       - name: Checkout source Git branch
         uses: actions/checkout@v2
         with:
-            ref: src-pages
+            ref: main
             fetch-depth: 10
             submodules: true
 
@@ -43,6 +43,7 @@ jobs:
           destination: ./build/index.css
 
   deploy:
+    needs: build_css
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
