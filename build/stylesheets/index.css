@@ -370,7 +370,7 @@ input[type=checkbox] {
 }
 
 input[type=checkbox]:checked {
-  background: #FFFFFF url("./src/assets/icons/check.svg") -3px no-repeat;
+  background: #FFFFFF url("../../src/assets/icons/check.svg") -3px no-repeat;
 }
 
 input[type=checkbox]:hover {
