@@ -35,7 +35,7 @@ function syncPassword(algorithm) {
     let symbolsIsChecked = document.getElementById("symbols").checked;
 
     // TODO: pegar pelo id ao invés do querySelector
-    const length = document.querySelector('input[type="range"]').value;
+    const length = document.getElementById('charNum').value;
 
     const password = algorithm(uppercaseIsChecked, lowercaseIsChecked, digitsIsChecked, symbolsIsChecked, length);
 
