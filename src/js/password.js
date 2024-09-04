@@ -1,28 +1,23 @@
-// Helper function to generate a random character from the given dictionary
-// TODO: criar module de utils
-function getRandomCharacter(dictionary) {
-    const randomIndex = Math.floor(Math.random() * dictionary.length);
-    return dictionary[randomIndex];
-}
+import { addEventListeners, getPasswordStrength, getRandomCharacter } from "./utils.js";
 
 // Password generator function using Promises for potential async operations
-// TODO: em vez da lista passar um objeto mesmo
 function generatePassword([isUpper, isLower, hasDigits, hasSymbols, length]) {
     return new Promise((resolve) => {
-        const uppercase = "QWERTYUIOPASDFGHJKLZXCVBNM";
-        const lowercase = "qwertyuiopasdfghjklzxcvbnm";
-        const digits = "1234567890";
-        const symbols = "!@#$%^&*()_+-={}[];<>:";
+        const digits = "1234567890",
+            lowercase = "qwertyuiopasdfghjklzxcvbnm",
+            symbols = "!@#$%^&*()_+-={}[];<>:",
+            uppercase = "QWERTYUIOPASDFGHJKLZXCVBNM";
 
-        let dictionary = '';
-        if (isUpper) dictionary += uppercase;
-        if (isLower) dictionary += lowercase;
-        if (hasDigits) dictionary += digits;
-        if (hasSymbols) dictionary += symbols;
-        if (dictionary === '') dictionary = lowercase;
+        let dictionary = '',
+            password = '';
 
-        let password = '';
-        for (let i = 0; i < length; i++) {
+        if (isUpper) { dictionary += uppercase; }
+        if (isLower) { dictionary += lowercase; }
+        if (hasDigits) { dictionary += digits; }
+        if (hasSymbols) { dictionary += symbols; }
+        if (dictionary === '') { dictionary = lowercase; }
+
+        for (let index = 0; index < length; index++) {
             password += getRandomCharacter(dictionary);
         }
 
@@ -30,9 +25,6 @@ function generatePassword([isUpper, isLower, hasDigits, hasSymbols, length]) {
     });
 }
 
-
-// TODO: a ideia de usar promises é mostrar ao usuário que tá carregando ou que deu erro
-//       adicione .catch e mostre erro com o toast e adicione um loader pro usuário ver o processamento (teste com um sleep na promise)
 /**
  * Updates the DOM with a generated password by the algorithm
  * 
@@ -40,48 +32,42 @@ function generatePassword([isUpper, isLower, hasDigits, hasSymbols, length]) {
  * @param {callback} algorithm - The algorithm that generates a password
  * @param {[Boolean]} options - Boolean options
  */
-function updatePasswordField(field, algorithm, options) {
-    console.log("Update password fields: " + options)
-    algorithm(options)
-        .then(password => {
-            field.innerText = password;
-        });
-}
+// Function updatePasswordField(field, algorithm, options) {
+//     Algorithm(options)
+//         .then(password => {
+//             Field.innerText = password;
+//         });
+// }
 
-// TODO: A função updatePasswordField tem que morrer. O tratamento da promise deve ser feita aqui
 function updatePassword(passwordInput, checkboxes, length) {
-    let options = checkboxes.map(input => input.checked);
+    const options = checkboxes.map(input => input.checked);
     options.push(length);
-    updatePasswordField(passwordInput, generatePassword, options);
-}
-
-function syncStrengthBarStep(strengthBarStep, [isUpper, isLower, hasDigits, hasSymbols]) {
-    // TODO: criar uma função para calcular a força e só chamar ela aqui, alterando o DOM
-    if (isUpper && isLower && hasDigits && hasSymbols) {
-        strengthBarStep.className = "strong";
-        strengthBarStep.setAttribute("aria-label", "Força da senha: forte");
-    } else if ((isUpper || isLower) && (hasDigits || hasSymbols)) {
-        strengthBarStep.className = "medium";
-        strengthBarStep.setAttribute("aria-label", "Força da senha: média");
-    } else {
-        strengthBarStep.className = "weak";
-        strengthBarStep.setAttribute("aria-label", "Força da senha: fraca");
-    }
-}
-
-function addEventListeners(inputs, event, callback) {
-    inputs.forEach(input => {
-        input.addEventListener(event, callback);
+    generatePassword(options).then(password => {
+        passwordInput.innerText = password;
     });
+}
+
+function syncStrengthBarStep(
+    strengthBarStep, [isUpper, isLower, hasDigits, hasSymbols]
+) {
+    const translate = { 'strong': 'forte', 'medium': 'média', 'weak': 'fraca' },
+
+        strength = getPasswordStrength(isUpper, isLower, hasDigits, hasSymbols);
+    strengthBarStep.className = strength;
+    strengthBarStep.setAttribute(
+        "aria-label",
+        `Força da senha: ${translate[strength]}`
+    );
 }
 
 function synchronizeRangeAndNumber(rangeInput, numberInput) {
-    rangeInput.addEventListener("input", e => {
-        numberInput.value = e.target.value;
+    rangeInput.addEventListener("input", event => {
+        numberInput.value = event.target.value;
+
     });
 
-    numberInput.addEventListener("input", e => {
-        rangeInput.value = e.target.value;
+    numberInput.addEventListener("input", event => {
+        rangeInput.value = event.target.value;
     });
 }
 
@@ -95,20 +81,41 @@ export function setupPassword() {
     const formElement = document.getElementById("attributes");
     const strengthBarStep = document.getElementById("strength");
 
-    // initialization
+    // Initialization with default value
     const defaultValue = 12;
     rangeInput.value = defaultValue;
     numberInput.value = defaultValue;
-    console.log("numberInput: " + numberInput.value)
     updatePassword(passwordInput, checkboxes, numberInput.value);
 
-    
     // Listeners
-    addEventListeners([rangeInput, numberInput], "change", () => updatePassword(passwordInput, checkboxes, numberInput.value));
-    formElement.addEventListener("change", () => syncStrengthBarStep(strengthBarStep, checkboxes.map(input => input.checked)));
+    addEventListeners(
+        [rangeInput, numberInput],
+        "change",
+        () => updatePassword(passwordInput, checkboxes, numberInput.value)
+    );
+    formElement.addEventListener(
+        "change",
+        () => {
+            syncStrengthBarStep(
+                strengthBarStep,
+                checkboxes.map(input => input.checked)
+            )
+        }
+    );
     const elements = document.querySelectorAll(
         'input[type="checkbox"], button.generate'
     );
-    addEventListeners(elements, "click", () => updatePassword(passwordInput, checkboxes, numberInput.value));
+
+    addEventListeners(
+        elements,
+        "click",
+        () => {
+            updatePassword(
+                passwordInput,
+                checkboxes,
+                numberInput.value
+            )
+        }
+    );
     synchronizeRangeAndNumber(rangeInput, numberInput);
 }

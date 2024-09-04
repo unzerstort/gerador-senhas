@@ -1,0 +1,16 @@
+{
+  "name": "gerador-senhas",
+  "version": "1.0.0",
+  "description": "Gerador de senhas feito para o processo seletivo de Pessoa Desenvolvedora Front-End da Alura.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "eslint": "^9.9.1",
+    "globals": "^15.9.0"
+  }
+}
