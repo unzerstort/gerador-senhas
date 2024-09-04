@@ -522,7 +522,7 @@ body {
   div.char-container label {
     font-size: 1.25em;
   }
-  div.char-container input#rangeValue {
+  div.char-container input#length-input {
     font-size: 1.25em;
   }
   fieldset legend {
@@ -563,7 +563,7 @@ body {
   div.char-container label {
     font-size: 1.25em;
   }
-  div.char-container input#rangeValue {
+  div.char-container input#length-input {
     font-size: 1.25em;
   }
   fieldset legend {
@@ -604,7 +604,7 @@ body {
   div.char-container label {
     font-size: 1.25em;
   }
-  div.char-container input#rangeValue {
+  div.char-container input#length-input {
     font-size: 1.25em;
   }
   fieldset legend {
@@ -639,7 +639,7 @@ body {
   div.char-container label {
     font-size: 1.5em;
   }
-  div.char-container input#rangeValue {
+  div.char-container input#length-input {
     font-size: 1.5em;
   }
   fieldset legend {
