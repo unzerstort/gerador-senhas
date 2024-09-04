@@ -33,7 +33,7 @@ function synchronizeRangeAndNumber() {
 }
 
 // strength bar
-function changePasswordStrength(e) {
+function setPasswordStrength(e) {
     console.log(e)
 
     const hasUppercase = e.includes("uppercase");
