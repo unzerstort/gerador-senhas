@@ -22,14 +22,14 @@ export function copyTextToClipboard(textToCopy) {
  * Sets up an event listener on a button to copy the password to 
  * the clipboard when clicked.
  *
- * @param {string} buttonId - The ID of the button element that 
- * triggers the copy action.
+ * @param {string} targetElementId - ID of the element that contains the copy target.
+ * @param {string} buttonId - Id of the element that triggers the copy action.
  */
-export function passwordCopyEvent(buttonId) {
+export function passwordCopyEvent(targetElementId, buttonId) {
     const copyBtn = document.getElementById(buttonId);
-    const password = document.getElementById("password").innerText;
-
+    
     copyBtn.addEventListener('click', () => {
+        const password = document.getElementById(targetElementId).innerText;
         copyTextToClipboard(password)
             .then(() => showToast('Senha copiada com sucesso!', 'success'))
             .catch(err => showToast(`Erro ao copiar o texto: ${err}`, 'error'));
