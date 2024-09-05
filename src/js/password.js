@@ -37,20 +37,6 @@ function generatePassword([isUpper, isLower, hasDigits, hasSymbols, length]) {
 }
 
 /**
- * Updates the DOM with a generated password by the algorithm
- * 
- * @param {HTMLInputElement} field - password input field
- * @param {callback} algorithm - The algorithm that generates a password
- * @param {[Boolean]} options - Boolean options
- */
-// Function updatePasswordField(field, algorithm, options) {
-//     Algorithm(options)
-//         .then(password => {
-//             Field.innerText = password;
-//         });
-// }
-
-/**
  * Updates the password field with a newly generated password.
  *
  * @param {HTMLElement} passwordInput - The HTML element where the password will 
