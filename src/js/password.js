@@ -1,6 +1,17 @@
 import { addEventListeners, getPasswordStrength, getRandomCharacter } from "./utils.js";
 
-// Password generator function using Promises for potential async operations
+/**
+ * Generates a random password based on the specified options.
+ *
+ * @param {Array<boolean>} options - Array containing boolean options for password 
+ * generation.
+ * @param {boolean} options isUpper - Whether to include uppercase letters.
+ * @param {boolean} options isLower - Whether to include lowercase letters.
+ * @param {boolean} options hasDigits- Whether to include digits.
+ * @param {boolean} options hasSymbols - Whether to include symbols.
+ * @param {number} options length - The length of the password.
+ * @returns {Promise<string>} A promise that resolves to the generated password.
+ */
 function generatePassword([isUpper, isLower, hasDigits, hasSymbols, length]) {
     return new Promise((resolve) => {
         const digits = "1234567890",
@@ -39,6 +50,15 @@ function generatePassword([isUpper, isLower, hasDigits, hasSymbols, length]) {
 //         });
 // }
 
+/**
+ * Updates the password field with a newly generated password.
+ *
+ * @param {HTMLElement} passwordInput - The HTML element where the password will 
+ * be displayed.
+ * @param {Array<HTMLInputElement>} checkboxes - Array of checkbox elements indicating 
+ * user preferences.
+ * @param {number} length - The desired length of the password.
+ */
 function updatePassword(passwordInput, checkboxes, length) {
     const options = checkboxes.map(input => input.checked);
     options.push(length);
@@ -47,6 +67,18 @@ function updatePassword(passwordInput, checkboxes, length) {
     });
 }
 
+/**
+ * Synchronizes the strength bar with the password strength.
+ *
+ * @param {HTMLElement} strengthBarStep - The HTML element representing the 
+ * strength bar.
+ * @param {Array<boolean>} options - Array containing boolean options 
+ * for password strength.
+ * @param {boolean} options isUpper - Whether to include uppercase letters.
+ * @param {boolean} options isLower - Whether to include lowercase letters.
+ * @param {boolean} options hasDigits- Whether to include digits.
+ * @param {boolean} options hasSymbols - Whether to include symbols.
+ */
 function syncStrengthBarStep(
     strengthBarStep, [isUpper, isLower, hasDigits, hasSymbols]
 ) {
@@ -60,6 +92,12 @@ function syncStrengthBarStep(
     );
 }
 
+/**
+ * Synchronizes the value of the range input with the number input.
+ *
+ * @param {HTMLInputElement} rangeInput - The range input element.
+ * @param {HTMLInputElement} numberInput - The number input element.
+ */
 function synchronizeRangeAndNumber(rangeInput, numberInput) {
     rangeInput.addEventListener("input", event => {
         numberInput.value = event.target.value;
@@ -71,6 +109,9 @@ function synchronizeRangeAndNumber(rangeInput, numberInput) {
     });
 }
 
+/**
+ * Sets up the password generation and UI elements.
+ */
 export function setupPassword() {
     const passwordInput = document.getElementById('password');
     const checkboxes = ["uppercase", "lowercase", "digits", "symbols"].map(
