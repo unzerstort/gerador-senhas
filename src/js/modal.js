@@ -1,4 +1,11 @@
-
+/**
+ * Sets up event listeners for handling modal operations.
+ *
+ * This function attaches event listeners to elements for opening 
+ * and closing the modal. 
+ * The modal can be opened by clicking a button, closed by clicking a close button, 
+ * clicking outside the modal, or pressing the Escape key.
+ */
 export const setUpModalEvents = () => {
     const btn = document.getElementById('modal-btn'),
     close = document.getElementById('close'),
@@ -9,7 +16,7 @@ export const setUpModalEvents = () => {
         modal.style.display = 'block';
     });
 
-    // Closes modal when closing button is clicked
+    // Closes modal when the close button is clicked
     close.addEventListener('click', () => {
         modal.style.display = 'none';
     });
