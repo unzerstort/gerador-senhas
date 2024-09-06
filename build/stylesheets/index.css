@@ -296,7 +296,7 @@
   padding-right: 2em;
 }
 
-.p {
+.p-0 {
   padding: 0;
 }
 
@@ -306,6 +306,7 @@
 
 .slider,
 input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
   background: #2C1746;
   border-radius: 25px;
   height: 10px;
@@ -479,7 +480,7 @@ body {
   background-color: #694A81;
 }
 
-.visually-hidden {
+p[aria-hidden=true] {
   display: none;
 }
 
@@ -523,7 +524,7 @@ body {
     font-size: 1.25em;
   }
   div.char-container input#length-input {
-    font-size: 1.25em;
+    font-size: 1.5em;
   }
   fieldset legend {
     font-size: 1.25em;

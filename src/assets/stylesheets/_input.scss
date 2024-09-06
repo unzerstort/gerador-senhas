@@ -2,6 +2,7 @@
 
 .slider,
 input[type=range]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
     background: colors.$dark-violet;
     border-radius: 25px;
     height: 10px;

@@ -7,9 +7,9 @@
  * clicking outside the modal, or pressing the Escape key.
  */
 export const setUpModalEvents = () => {
-    const btn = document.getElementById('modal-btn'),
-    close = document.getElementById('close'),
-    modal = document.getElementById('modal');
+    const btn = document.getElementById('modal-btn');
+    const close = document.getElementById('close');
+    const modal = document.getElementById('modal');
 
     // Opens modal
     btn.addEventListener('click', () => {

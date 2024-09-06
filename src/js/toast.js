@@ -5,9 +5,8 @@
  * @param {string} type - The type of the toast ('success' or 'error'). 
  *                        This determines the toast's styling.
  */
-export const showToast = (message, type) => {
-    const seconds = 3000, 
-    toast = document.getElementById("toast");
+export const showToast = (message, type, seconds = 3000) => {
+    const toast = document.getElementById("toast");
 
     // Set the toast's specific class and message
     toast.className = `show font-medium toast-${type}`;
