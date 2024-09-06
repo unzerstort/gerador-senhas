@@ -98,7 +98,7 @@ body {
     background-color: colors.$opaque-violet;
 }
 
-.visually-hidden {
+p[aria-hidden=true] {
     display: none;
 }
 
@@ -109,12 +109,12 @@ $medium: 3em;
 $large: 4em;
 
 // font sizes
-$smaller-font: 1.25em; 
-$small-font: 1.375em; 
-$medium-font: 1.5em; 
-$large-font: 1.75em; 
-$larger-font: 2em; 
-$largest-font: 2.5em; 
+$smaller-font: 1.25em;
+$small-font: 1.375em;
+$medium-font: 1.5em;
+$large-font: 1.75em;
+$larger-font: 2em;
+$largest-font: 2.5em;
 
 
 .h-small {
@@ -142,45 +142,65 @@ $largest-font: 2.5em;
         flex-direction: row;
     }
 
-    header h1 {
-        font-size: $larger-font;
+    header {
+        h1 {
+            font-size: $larger-font;
+        }
     }
 
-    header p {
-        font-size: $medium-font;
+    header {
+        p {
+            font-size: $medium-font;
+        }
     }
 
-    .password span.text-grey {
-        font-size: 0.75em;
+    .password {
+        span.text-grey {
+            font-size: 0.75em;
+        }
     }
 
-    .password span.text-white {
-        font-size: $medium-font;
+    .password {
+        span.text-white {
+            font-size: $medium-font;
+        }
     }
 
     h4 {
         font-size: $medium-font;
     }
 
-    div.char-container label {
-        font-size: $smaller-font;
+    div.char-container {
+        label {
+            font-size: $smaller-font;
+        }
     }
 
-    div.char-container input#rangeValue {
-        font-size: $smaller-font;
+    div.char-container {
+        input#length-input {
+            font-size: $medium-font;
+        }
     }
 
-    fieldset legend {
-        font-size: $smaller-font;
+    fieldset {
+        legend {
+            font-size: $smaller-font;
+        }
     }
 
-    #strength-container label {
-        font-size: $smaller-font;
+    #strength-container {
+        label {
+            font-size: $smaller-font;
+        }
     }
 
-    div#strength-bar div span {
-        font-size: 1em;
-    } 
+    div#strength-bar {
+        div {
+            span {
+                font-size: 1em;
+            }
+        }
+    }
 
     button#copy-password {
         font-size: $smaller-font;
@@ -197,45 +217,65 @@ $largest-font: 2.5em;
         justify-content: space-between;
     }
 
-    header h1 {
-        font-size: $larger-font;
+    header {
+        h1 {
+            font-size: $larger-font;
+        }
     }
 
-    header p {
-        font-size: $medium-font;
+    header {
+        p {
+            font-size: $medium-font;
+        }
     }
 
-    .password span.text-grey {
-        font-size: 0.75em;
+    .password {
+        span.text-grey {
+            font-size: 0.75em;
+        }
     }
 
-    .password span.text-white {
-        font-size: $medium-font;
+    .password {
+        span.text-white {
+            font-size: $medium-font;
+        }
     }
 
     h4 {
         font-size: $medium-font;
     }
 
-    div.char-container label {
-        font-size: $smaller-font;
+    div.char-container {
+        label {
+            font-size: $smaller-font;
+        }
     }
 
-    div.char-container input#rangeValue {
-        font-size: $smaller-font;
+    div.char-container {
+        input#length-input {
+            font-size: $smaller-font;
+        }
     }
 
-    fieldset legend {
-        font-size: $smaller-font;
+    fieldset {
+        legend {
+            font-size: $smaller-font;
+        }
     }
 
-    #strength-container label {
-        font-size: $smaller-font;
+    #strength-container {
+        label {
+            font-size: $smaller-font;
+        }
     }
 
-    div#strength-bar div span {
-        font-size: 1em;
-    } 
+    div#strength-bar {
+        div {
+            span {
+                font-size: 1em;
+            }
+        }
+    }
 
     button#copy-password {
         font-size: $smaller-font;
@@ -253,45 +293,65 @@ $largest-font: 2.5em;
         justify-content: space-between;
     }
 
-    header h1 {
-        font-size: $larger-font;
+    header {
+        h1 {
+            font-size: $larger-font;
+        }
     }
 
-    header p {
-        font-size: $medium-font;
+    header {
+        p {
+            font-size: $medium-font;
+        }
     }
 
-    .password span.text-grey {
-        font-size: 0.75em;
+    .password {
+        span.text-grey {
+            font-size: 0.75em;
+        }
     }
 
-    .password span.text-white {
-        font-size: $medium-font;
+    .password {
+        span.text-white {
+            font-size: $medium-font;
+        }
     }
 
     h4 {
         font-size: $medium-font;
     }
 
-    div.char-container label {
-        font-size: $smaller-font;
+    div.char-container {
+        label {
+            font-size: $smaller-font;
+        }
     }
 
-    div.char-container input#rangeValue {
-        font-size: $smaller-font;
+    div.char-container {
+        input#length-input {
+            font-size: $smaller-font;
+        }
     }
 
-    fieldset legend {
-        font-size: $smaller-font;
+    fieldset {
+        legend {
+            font-size: $smaller-font;
+        }
     }
 
-    #strength-container label {
-        font-size: $smaller-font;
+    #strength-container {
+        label {
+            font-size: $smaller-font;
+        }
     }
 
-    div#strength-bar div span {
-        font-size: 1em;
-    } 
+    div#strength-bar {
+        div {
+            span {
+                font-size: 1em;
+            }
+        }
+    }
 
     button#copy-password {
         font-size: $smaller-font;
@@ -302,54 +362,71 @@ $largest-font: 2.5em;
 // X-Large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
 
-    header h2 {
-        font-size: $larger-font;
+    header {
+        h2 {
+            font-size: $larger-font;
+        }
     }
 
-    header p {
-        font-size: $medium-font;
+    header {
+        p {
+            font-size: $medium-font;
+        }
     }
 
-    .password span.text-grey {
-        font-size: $smaller-font;
+    .password {
+        span.text-grey {
+            font-size: $smaller-font;
+        }
     }
 
-    .password span.text-white {
-        font-size: $largest-font;
+    .password {
+        span.text-white {
+            font-size: $largest-font;
+        }
     }
 
     h4 {
         font-size: $medium-font;
     }
 
-    div.char-container label {
-        font-size: $medium-font;
+    div.char-container {
+        label {
+            font-size: $medium-font;
+        }
     }
 
-    div.char-container input#rangeValue {
-        font-size: $medium-font;
+    div.char-container {
+        input#length-input {
+            font-size: $medium-font;
+        }
     }
 
-    fieldset legend {
-        font-size: $medium-font;
+    fieldset {
+        legend {
+            font-size: $medium-font;
+        }
     }
 
-    div label.cursor-pointer {
-        font-size: $smaller-font;
+    div {
+        label.cursor-pointer {
+            font-size: $smaller-font;
+        }
     }
 
-    #strength-container label {
-        font-size: $medium-font;
+    #strength-container {
+        label {
+            font-size: $medium-font;
+        }
     }
 
-    div#strength-bar div span {
-        font-size: $smaller-font;
-    } 
+    div#strength-bar {
+        div span {
+            font-size: $smaller-font;
+        }
+    }
 
     button#copy-password {
         font-size: $small-font;
     }
 }
-
-// XX-Large devices (larger desktops, 1400px and up)
-@media (min-width: 1400px) {}

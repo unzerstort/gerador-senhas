@@ -54,16 +54,16 @@
 
             <div class="text-grey font-medium options-container mb-2">
                 <div class="char-container">
-                    <label for="charNum">Número de caracteres</label>
-                    <input type="range" id="charNum" class="slider accent" min="1" max="24"
-                        aria-labelledby="charNumLabel" aria-describedby="charNumDescription">
-                    <input type="number" id="rangeValue" class="text-grey font-sans font-medium"
-                        aria-labelledby="charNumLabel" aria-describedby="charNumDescription">
-                    <p id="charNumDescription" class="visually-hidden">Ajuste o número de caracteres da senha</p>
+                    <label for="length-slider-input">Número de caracteres</label>
+                    <input type="range" id="length-slider-input" class="slider accent" min="1" max="24"
+                        aria-labelledby="lengthSliderLabel" aria-describedby="lengthSliderDescription">
+                    <input type="number" id="length-input" class="text-grey font-sans font-medium"
+                        aria-labelledby="lengthSliderLabel" aria-describedby="lengthSliderDescription">
+                    <p id="lengthSliderDescription" aria-hidden="true">Ajuste o número de caracteres da senha</p>
                 </div>
 
                 <div class="attr-container">
-                    <fieldset class="border-none p-0" id="attributes">
+                    <fieldset class="border-none p-0 m-0" id="attributes">
                         <legend>Características da senha</legend>
                         <div>
                             <input type="checkbox" id="uppercase" name="check" value="uppercase">
