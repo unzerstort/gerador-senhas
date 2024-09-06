@@ -12,5 +12,9 @@
     "@eslint/js": "^9.9.1",
     "eslint": "^9.9.1",
     "globals": "^15.9.0"
+  },
+  "dependencies": {
+    "mocha": "10.7.3",
+    "selenium-webdriver": "^4.24.0"
   }
 }
