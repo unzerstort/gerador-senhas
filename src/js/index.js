@@ -9,5 +9,4 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = 'password';
     passwordCopyEvent(password, 'copy');
     passwordCopyEvent(password, 'copy-password');
-    
 });

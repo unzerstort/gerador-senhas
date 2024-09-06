@@ -132,6 +132,7 @@ function attachEventListeners(
         "change",
         () => updatePassword(passwordInput, checkboxes, numberInput.value)
     );
+
     formElement.addEventListener(
         "change",
         () => {
@@ -145,7 +146,6 @@ function attachEventListeners(
     const elements = document.querySelectorAll(
         'input[type="checkbox"], button.generate'
     );
-
     addEventListeners(
         elements,
         "click",
@@ -157,6 +157,7 @@ function attachEventListeners(
             )
         }
     );
+
     synchronizeRangeAndNumber(rangeInput, numberInput);
 }
 
