@@ -35,7 +35,7 @@ Entretanto, não é necessário executar o Sass para visualizar o projeto, uma v
 Já para a execução dos testes, é necessário utilizar o comando abaixo:
 
 ```
-node src/tests
+node src/tests/*.js
 ```
 
 Este projeto utilizou:
